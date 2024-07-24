@@ -52,7 +52,7 @@ class Pool_Status_Widget extends WP_Widget {
     // Fetch weather data from an API
     private function get_weather_data() {
         $api_key = 'YOUR_API_KEY';
-        $city_id = 'YOUR_CITY_ID';
+        $city_id = 'YOUR_CITY_ID'; # Graefenberg, DE: 2918350 
         $api_url = "http://api.openweathermap.org/data/2.5/weather?id={$city_id}&units=metric&appid={$api_key}";
 
         $response = wp_remote_get($api_url);
