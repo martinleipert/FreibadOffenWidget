@@ -3,7 +3,8 @@
 Plugin Name: Pool Status Widget
 Description: Displays whether the pool is open based on weather conditions and allows manual setting on a protected page.
 Version: 1.2
-Author: Your Name
+Author: Martin Leipert
+E-Mail: martin.leipert@fau.de
 */
 
 // Register the widget
