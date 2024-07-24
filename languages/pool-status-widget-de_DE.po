@@ -1,0 +1,65 @@
+msgid "Pool Status Widget"
+msgstr "Schwimmbad-Status-Widget"
+
+msgid "Displays whether the pool is open based on weather conditions and settings."
+msgstr "Zeigt an, ob das Schwimmbad basierend auf Wetterbedingungen und Einstellungen geöffnet ist."
+
+msgid "Status:"
+msgstr "Status:"
+
+msgid "Water Temperature: %.1f°C"
+msgstr "Wassertemperatur: %.1f°C"
+
+msgid "Opening Hours:"
+msgstr "Öffnungszeiten:"
+
+msgid "Open"
+msgstr "Geöffnet"
+
+msgid "Closed"
+msgstr "Geschlossen"
+
+msgid "Unable to determine"
+msgstr "Nicht feststellbar"
+
+msgid "Pool Status Settings"
+msgstr "Schwimmbad-Status-Einstellungen"
+
+msgid "API Key"
+msgstr "API-Schlüssel"
+
+msgid "City ID"
+msgstr "Stadt-ID"
+
+msgid "Manual Status"
+msgstr "Manueller Status"
+
+msgid "Manual Water Temperature"
+msgstr "Manuelle Wassertemperatur"
+
+msgid "Monday Opening Hours"
+msgstr "Öffnungszeiten Montag"
+
+msgid "Tuesday Opening Hours"
+msgstr "Öffnungszeiten Dienstag"
+
+msgid "Wednesday Opening Hours"
+msgstr "Öffnungszeiten Mittwoch"
+
+msgid "Thursday Opening Hours"
+msgstr "Öffnungszeiten Donnerstag"
+
+msgid "Friday Opening Hours"
+msgstr "Öffnungszeiten Freitag"
+
+msgid "Saturday Opening Hours"
+msgstr "Öffnungszeiten Samstag"
+
+msgid "Sunday Opening Hours"
+msgstr "Öffnungszeiten Sonntag"
+
+msgid "Settings saved."
+msgstr "Einstellungen gespeichert."
+
+msgid "No logs found"
+msgstr "Keine Protokolle gefunden"
