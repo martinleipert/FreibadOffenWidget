@@ -1,6 +1,9 @@
 msgid "Pool Status Widget"
 msgstr "Schwimmbad-Status-Widget"
 
+msgid "Pool Status"
+msgstr "Freibad Status"
+
 msgid "Displays whether the pool is open based on weather conditions and settings."
 msgstr "Zeigt an, ob das Schwimmbad basierend auf Wetterbedingungen und Einstellungen geöffnet ist."
 
