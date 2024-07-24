@@ -1,8 +1,8 @@
 <?php
 /*
 Plugin Name: Pool Status Widget
-Description: Displays whether the pool is open based on weather conditions.
-Version: 1.1
+Description: Displays whether the pool is open based on weather conditions and allows manual setting on a protected page.
+Version: 1.2
 Author: Your Name
 */
 
@@ -186,3 +186,113 @@ function display_pool_status_logs() {
 
     echo '</tbody></table></div>';
 }
+
+// Add settings page for manually setting the status
+function pool_status_settings_page() {
+    add_menu_page(
+        'Pool Status Settings',
+        'Pool Status Settings',
+        'manage_options',
+        'pool-status-settings',
+        'display_pool_status_settings',
+        'dashicons-admin-generic',
+        27
+    );
+}
+add_action('admin_menu', 'pool_status_settings_page');
+
+function display_pool_status_settings() {
+    // Check if the form is submitted
+    if (isset($_POST['pool_status_nonce']) && wp_verify_nonce($_POST['pool_status_nonce'], 'pool_status_settings')) {
+        $manual_status = sanitize_text_field($_POST['manual_status']);
+        $manual_temp = sanitize_text_field($_POST['manual_temp']);
+
+        update_option('pool_manual_status', $manual_status);
+        update_option('pool_manual_temp', $manual_temp);
+
+        log_manual_change('status', $manual_status);
+        log_manual_change('temperature', $manual_temp);
+
+        echo '<div class="updated"><p>Settings saved.</p></div>';
+    }
+
+    // Get current settings
+    $manual_status = get_option('pool_manual_status', '');
+    $manual_temp = get_option('pool_manual_temp', '');
+
+    ?>
+    <div class="wrap">
+        <h1>Pool Status Settings</h1>
+        <form method="post" action="">
+            <?php wp_nonce_field('pool_status_settings', 'pool_status_nonce'); ?>
+            <table class="form-table">
+                <tr>
+                    <th scope="row"><label for="manual_status">Manual Status</label></th>
+                    <td>
+                        <select id="manual_status" name="manual_status">
+                            <option value="" <?php selected($manual_status, ''); ?>>Auto</option>
+                            <option value="Open" <?php selected($manual_status, 'Open'); ?>>Open</option>
+                            <option value="Closed" <?php selected($manual_status, 'Closed'); ?>>Closed</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row"><label for="manual_temp">Manual Water Temperature</label></th>
+                    <td><input name="manual_temp" type="number" step="0.1" id="manual_temp" value="<?php echo esc_attr($manual_temp); ?>" class="regular-text"></td>
+                </tr>
+            </table>
+            <?php submit_button(); ?>
+        </form>
+    </div>
+    <?php
+}
+
+// Shortcode for embedding the status setting form in a password-protected page
+function pool_status_settings_shortcode() {
+    // Check if the form is submitted
+    if (isset($_POST['pool_status_nonce']) && wp_verify_nonce($_POST['pool_status_nonce'], 'pool_status_settings')) {
+        $manual_status = sanitize_text_field($_POST['manual_status']);
+        $manual_temp = sanitize_text_field($_POST['manual_temp']);
+
+        update_option('pool_manual_status', $manual_status);
+        update_option('pool_manual_temp', $manual_temp);
+
+        log_manual_change('status', $manual_status);
+        log_manual_change('temperature', $manual_temp);
+
+        echo '<div class="updated"><p>Settings saved.</p></div>';
+    }
+
+    // Get current settings
+    $manual_status = get_option('pool_manual_status', '');
+    $manual_temp = get_option('pool_manual_temp', '');
+
+    ob_start();
+    ?>
+    <div class="wrap">
+        <h1>Pool Status Settings</h1>
+        <form method="post" action="">
+            <?php wp_nonce_field('pool_status_settings', 'pool_status_nonce'); ?>
+            <table class="form-table">
+                <tr>
+                    <th scope="row"><label for="manual_status">Manual Status</label></th>
+                    <td>
+                        <select id="manual_status" name="manual_status">
+                            <option value="" <?php selected($manual_status, ''); ?>>Auto</option>
+                            <option value="Open" <?php selected($manual_status, 'Open'); ?>>Open</option>
+                            <option value="Closed" <?php selected($manual_status, 'Closed'); ?>>Closed</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row"><label for="manual_temp">Manual Water Temperature</label></th>
+                    <td><input name="manual_temp" type="number" step="0.1" id="manual_temp" value="<?php echo esc_attr($manual_temp); ?>" class="regular-text"></td>
+                </tr>
+            </table>
+            <?php submit_button(); ?>
+        </form>
+    </div>
+    <?php
+    return ob_get_clean();
+}
+add_shortcode('pool_status_settings', 'pool_status_settings_shortcode');
