@@ -1,3 +1,4 @@
+<?php
 /*
 Plugin Name: Pool Status Widget
 Description: Displays whether the pool is open based on weather conditions and allows manual setting on a protected page.
@@ -6,7 +7,6 @@ Author: Martin Leipert
 Text Domain: pool-status-widget
 Domain Path: /languages
 */
-<?php
 
 // Include necessary files
 require_once plugin_dir_path(__FILE__) . 'includes/widget.php';
