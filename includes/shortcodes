@@ -1,3 +1,4 @@
+<?pphp
 
 // Shortcode for embedding the status setting form in a password-protected page
 function pool_status_settings_shortcode() {
