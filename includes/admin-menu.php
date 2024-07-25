@@ -1,4 +1,18 @@
 <?php
+
+
+// Empty description page
+function display_pool_status_description() {
+    ?>
+    <div class="wrap">
+        <h1><?php _e('Pool Status Widget Description', 'pool-status-widget'); ?></h1>
+        <p><?php _e('This page will contain the description and information about the Pool Status Widget plugin.', 'pool-status-widget'); ?></p>
+        <!-- Add more content here as needed -->
+    </div>
+    <?php
+}
+?>
+
 // Add admin menu
 function pool_status_admin_menu() {
     add_menu_page(
@@ -7,7 +21,7 @@ function pool_status_admin_menu() {
         'manage_options',
         'pool-status',
         'pool_status_settings_page',
-        'dashicons-admin-site',
+        'display_pool_status_description',
         6
     );
 
