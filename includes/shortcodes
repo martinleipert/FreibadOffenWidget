@@ -1,6 +1,7 @@
 <?pphp
-
-// Shortcode for embedding the status setting form in a password-protected page
+/*
+Shortcode for embedding the Status in Wordpress
+*/
 function pool_status_settings_shortcode() {
     // Check if the form is submitted
     if (isset($_POST['pool_status_nonce']) && wp_verify_nonce($_POST['pool_status_nonce'], 'pool_status_settings')) {
