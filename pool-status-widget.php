@@ -14,6 +14,7 @@ require_once plugin_dir_path(__FILE__) . 'includes/widget.php';
 require_once plugin_dir_path(__FILE__) . 'includes/admin-menu.php';
 require_once plugin_dir_path(__FILE__) . 'includes/logs.php';
 require_once plugin_dir_path(__FILE__) . 'includes/settings.php';
+require_once plugin_dir_path(__FILE__) . 'includes/shortcodes.php';
 
 // Load plugin text domain
 function pool_status_load_textdomain() {
