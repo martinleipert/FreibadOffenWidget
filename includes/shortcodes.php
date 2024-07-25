@@ -1,4 +1,4 @@
-<?pphp
+<?php
 /*
 Shortcode for embedding the Status in Wordpress
 */
