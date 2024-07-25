@@ -1,4 +1,3 @@
-<?php
 /*
 Plugin Name: Pool Status Widget
 Description: Displays whether the pool is open based on weather conditions and allows manual setting on a protected page.
