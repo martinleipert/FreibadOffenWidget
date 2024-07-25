@@ -17,7 +17,7 @@ function pool_status_admin_menu() {
         __('Settings', 'pool-status-widget'),
         'manage_options',
         'pool-status-settings',
-        'pool_status_settings_page'
+        'display_pool_status_settings'
     );
 
     add_submenu_page(
@@ -26,7 +26,7 @@ function pool_status_admin_menu() {
         __('Logs', 'pool-status-widget'),
         'manage_options',
         'pool-status-logs',
-        'pool_status_logs_page'
+        'display_pool_status_logs'
     );
 }
 add_action('admin_menu', 'pool_status_admin_menu');
