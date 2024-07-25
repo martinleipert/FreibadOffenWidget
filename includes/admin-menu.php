@@ -11,7 +11,6 @@ function display_pool_status_description() {
     </div>
     <?php
 }
-?>
 
 // Add admin menu
 function pool_status_admin_menu() {
