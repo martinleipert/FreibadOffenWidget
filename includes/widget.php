@@ -20,6 +20,7 @@ class Pool_Status_Widget extends WP_Widget {
         $status_data = $this->get_pool_status();
         $status = $status_data['status'];
         $temp = $status_data['temp'];
+		$timestamp = $status_data['timestamp'];
         $opening_hours = $this->get_opening_hours();
 
         echo $args['before_widget'];
@@ -28,6 +29,7 @@ class Pool_Status_Widget extends WP_Widget {
         if ($temp !== false) {
             echo '<p>' . sprintf(__('Water Temperature: %.1f°C', 'pool-status-widget'), $temp) . '</p>';
         }
+		echo '<p>' . sprintf(__('Last updated: %s', 'pool-status-widget'), date('d.m.Y H:i:s', $timestamp)) . '</p>';
         echo '<p>' . __('Opening Hours:', 'pool-status-widget') . '</p>';
         echo '<ul>';
         foreach ($opening_hours as $day => $hours) {
