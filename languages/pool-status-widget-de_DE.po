@@ -66,3 +66,6 @@ msgstr "Einstellungen gespeichert."
 
 msgid "No logs found"
 msgstr "Keine Protokolle gefunden"
+
+msgid "Last updated"
+msgstr "Zuletzt aktualisiert"
